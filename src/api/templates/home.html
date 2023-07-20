@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f1f1f1; /* Color de fondo */
+        }
+
+        .login-form {
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            background-color: white; /* Color de fondo del formulario */
+        }
+
+        .login-form input {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            border: 1px solid #ccc;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        .login-form input[type="submit"] {
+            background-color: #ffd700; /* Color amarillo */
+            color: white;
+            cursor: pointer;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .company-logo {
+            max-width: 200px;
+            margin: 20px auto;
+            display: block;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+            padding: 5px;
+            background-color: #fdd;
+            border: 1px solid #f00;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-form">
+        <img src="./images/cyberdog.png" alt="Logo de tu empresa" class="company-logo">
+        <h1 style="color: black;">Login</h1>
+        <form method="POST" action="/">
+            <label for="email" style="color: black;">Email:</label>
+            <input type="text" name="email" id="email" placeholder="Tu correo electrónico" required><br>
+            <label for="password" style="color: black;">Password:</label>
+            <input type="password" name="password" id="password" placeholder="Tu contraseña" required><br>
+            <input type="submit" value="Login">
+        </form>
+        {% if error_message %}
+            <div class="error-message">{{ error_message }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>

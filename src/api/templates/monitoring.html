@@ -1,0 +1,81 @@
+<!-- templates/monitoring.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Monitoring</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1; /* Fondo gris */
+        }
+
+        .navbar {
+            background-color: #ffd700; /* Fondo amarillo */
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #000; /* Texto negro */
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .image-container {
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .image-container img {
+            max-width: 200px;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .button {
+            background-color: #ffd700; /* Color amarillo */
+            color: white;
+            cursor: pointer;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            display: block;
+            margin: 10px auto;
+            text-decoration: none;
+            width: 150px;
+        }
+
+        .button:hover {
+            background-color: #ffc107; /* Hover amarillo más oscuro */
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/monitoreo">Monitoreo</a>
+        <a href="/logout">Cerrar sesión</a>
+    </div>
+    <div class="container">
+        <div class="image-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvfZdDWYQAoF0nL6P7YIdgEcq8ueNIhAsjbw&usqp=CAU" alt="Imagen 1">
+            <a class="button" href="http://localhost:1880/ui" target="_blank">NodeRed</a>
+        </div>
+        <div class="image-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNdvE9N8XMlUuinUuj9m82NDY5LS-7LWow_A&usqp=CAU" alt="Imagen 2">
+            <a class="button" href="https://thingspeak.com/channels/2223212" target="_blank">Thing speak</a>
+        </div>
+    </div>
+</body>
+</html>

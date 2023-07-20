@@ -1,2 +1,5 @@
-python-telegram-bot==20.3
-
+Flask==2.3.2
+Flask-RESTful==0.3.10
+firebase==4.0.1
+firebase-admin==6.2.0
+Pyrebase4==4.7.1
