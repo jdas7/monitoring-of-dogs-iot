@@ -1,5 +1,7 @@
 import pyrebase
-from flask import Flask, request, render_template, redirect, session
+from flask import Flask, request, render_template, redirect, session, jsonify
+import firebase_admin
+from firebase_admin import credentials, db
 
 app = Flask(__name__)
 
@@ -10,7 +12,7 @@ config = {
     'storageBucket': "storageBucket",
     'messagingSenderId': "messagingSenderId",
     'appId': "appId",
-    'measurementId': "measurementId",
+    'measurementId': "G-measurementId",
     'databaseURL': ''
 }
 
@@ -18,6 +20,12 @@ firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
 
 app.secret_key = 'secret'
+
+# Ruta de la credencial JSON que descargaste al configurar Firebase
+cred = credentials.Certificate("/code/src/api/cyberdog-cfc41-firebase-adminsdk-wvgs3-e763d8520a.json")
+firebase_admin.initialize_app(cred, {
+    'databaseURL': 'databaseURL'
+})
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -42,6 +50,34 @@ def index():
 @app.route('/monitoreo')
 def monitoring():
     return render_template('monitoring.html')
+
+
+@app.route('/mq135', methods=['GET'])
+def mq_135():
+    ref = db.reference('cyberdog')
+    data = ref.child('sensor_mq_135').get()
+    return jsonify(data)
+
+
+@app.route('/dht22', methods=['GET'])
+def dht11():
+    ref = db.reference('cyberdog')
+    data = ref.child('sensor_dht22').get()
+    return jsonify(data)
+
+
+@app.route('/mpu6050', methods=['GET'])
+def mpu6050():
+    ref = db.reference('cyberdog')
+    data = ref.child('sensor_mpu_6050').get()
+    return jsonify(data)
+
+
+@app.route('/xd58c', methods=['GET'])
+def xd_58c():
+    ref = db.reference('cyberdog')
+    data = ref.child('sensor_xd_58c').get()
+    return jsonify(data)
 
 
 @app.route('/logout')

@@ -10,4 +10,11 @@ services:
       - "5001:5001"
     volumes:
       - .:/code/
+    networks:
+      - my_network
     command: sh /code/run.sh
+
+networks:
+  my_network:
+    driver: bridge
+    external: true

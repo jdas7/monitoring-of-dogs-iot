@@ -7,7 +7,7 @@ config = {
     'storageBucket': "storageBucket",
     'messagingSenderId': "messagingSenderId",
     'appId': "appId",
-    'measurementId': "measurementId",
+    'measurementId': "G-measurementId",
     'databaseURL': ''
 }
 
